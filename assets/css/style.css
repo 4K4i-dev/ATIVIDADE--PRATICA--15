@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('login.css');
+@import url('favoritos.css');
+@import url('carrinho.css');
+
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --primary-light: #eeebff;
+    --secondary: #7c3aed;
+    --accent: #10b981;
+    --accent-hover: #059669;
+    --dark: #0f172a;
+    --dark-muted: #1e293b;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-light: #94a3b8;
+    --card-bg: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04);
+}
+
+/* Global Reset & Typography */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    color: var(--dark);
+    font-weight: 700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--text-light);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Navbar Premium Styling */
+.custom-navbar {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    transition: var(--transition);
+}
+
+.brand-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.brand-logo:hover {
+    transform: scale(1.05);
+}
+
+/* Search input container */
+.search-container {
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+}
+.search-input {
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    width: 100%;
+    transition: var(--transition);
+    background-color: #f1f5f9;
+}
+.search-input:focus {
+    background-color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+    outline: none;
+}
+.search-icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+/* Offcanvas Sidebar */
+.offcanvas-custom {
+    background-color: var(--dark) !important;
+    color: #ffffff !important;
+    border-left: 1px solid rgba(255,255,255,0.05);
+}
+
+.offcanvas-custom .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.offcanvas-custom .nav-link:hover, 
+.offcanvas-custom .nav-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.offcanvas-custom .nav-link i {
+    color: var(--primary-light);
+    font-size: 1.1rem;
+}
+
+.offcanvas-custom .custom-sublink {
+    font-size: 0.875rem;
+    padding-left: 2rem;
+    color: rgba(255, 255, 255, 0.5) !important;
+    border-left: 2px solid rgba(255,255,255,0.1);
+    border-radius: 0;
+    margin-left: 1rem;
+}
+
+.offcanvas-custom .custom-sublink:hover {
+    color: #ffffff !important;
+    border-left-color: var(--primary);
+    background: transparent;
+}
+
+/* Custom Cards */
+.custom-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.custom-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+.custom-card .card-img-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.custom-card img {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-card:hover img {
+    transform: scale(1.08);
+}
+
+/* O botão flutuante de favoritos está estilizado em favoritos.css */
+
+/* Carousel */
+.carousel-custom {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.carousel-custom .carousel-item img {
+    height: 480px;
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.05);
+}
+
+@media (max-width: 768px) {
+    .carousel-custom .carousel-item img {
+        height: 300px;
+    }
+}
+
+.carousel-custom .carousel-caption {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 16px;
+    max-width: 650px;
+    margin: 0 auto;
+    bottom: 10%;
+    transform: translateY(0);
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Badge custom */
+.badge-category {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+/* Buttons */
+.btn-primary-custom {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+    transition: var(--transition);
+}
+
+.btn-primary-custom:hover {
+    background: linear-gradient(135deg, var(--primary-hover) 0%, #6d28d9 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+}
+
+.btn-outline-custom {
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+    border-radius: 10px;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--primary-light);
+}
+
+/* KPI Dashboard Cards */
+.kpi-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+.kpi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+.kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+/* Detail Page Custom Styles */
+.detail-main-img-container {
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    box-shadow: var(--shadow-sm);
+}
+
+.detail-thumb {
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 0.25rem;
+    cursor: pointer;
+    background-color: #ffffff;
+    object-fit: contain;
+    transition: var(--transition);
+}
+.detail-thumb:hover, .detail-thumb.active {
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+/* A página de login está estilizada em login.css */
+
+/* Toast Custom System */
+.toast-container-custom {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1090;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+}
+.toast-custom {
+    background-color: var(--dark);
+    color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 4px solid var(--primary);
+    font-weight: 500;
+}
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Premium Footer Styling */
+.custom-footer {
+    background-color: #ffffff;
+    border-top: 1px solid var(--border);
+    padding: 3rem 0;
+    margin-top: auto;
+}
+
+.custom-footer h5 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.25rem;
+}
+
+.custom-footer p, .custom-footer li {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.custom-footer li strong {
+    color: var(--text-primary);
+}
+
+.custom-footer-icon {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+

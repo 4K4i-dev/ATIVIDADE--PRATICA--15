@@ -1,0 +1,102 @@
+/* 
+   SHOPPING CART PAGE SPECIFIC STYLES
+   TechStore - E-commerce Dinâmico
+ */
+
+/* Cart Item Card container */
+.cart-item-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow-sm);
+    background-color: #ffffff;
+    transition: var(--transition);
+}
+
+.cart-item-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(79, 70, 229, 0.1);
+}
+
+/* Cart Item Image wrapper */
+.cart-item-img {
+    max-height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.cart-item-card:hover .cart-item-img {
+    transform: scale(1.05);
+}
+
+/* Quantity Selector controls */
+.cart-qty-selector {
+    max-width: 110px;
+    border-radius: 50px !important;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.cart-qty-selector .btn {
+    border: none;
+    background-color: #f8fafc;
+    transition: var(--transition);
+}
+
+.cart-qty-selector .btn:hover {
+    background-color: #e2e8f0;
+}
+
+.cart-qty-input {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    background-color: #ffffff !important;
+    border: none;
+}
+
+/* Cart Item Remove button */
+.cart-remove-btn {
+    color: var(--text-light);
+    padding: 0;
+    border: none;
+    background: transparent;
+    transition: var(--transition);
+}
+
+.cart-remove-btn:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
+/* Checkout Success Modal custom decoration */
+.checkout-success-header {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
+.checkout-success-circle {
+    width: 65px;
+    height: 65px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    animation: pulseCheck 2s infinite;
+}
+
+@keyframes pulseCheck {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}

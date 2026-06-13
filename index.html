@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - E-commerce Dinâmico</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-light m-0 p-0">
+    
+    <!-- Navbar Premium -->
+    <nav class="navbar custom-navbar shadow-sm">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/img/logo/LogoTechStore.jpg" alt="Logo TechStore" class="brand-logo">
+            </a>
+            
+            <div class="d-flex align-items-center gap-3 ms-auto">
+                <!-- Barra de Busca Dinâmica (Ativa na vitrine) -->
+                <div class="search-container d-none d-sm-block">
+                    <i class="bi bi-search search-icon"></i>
+                    <input type="text" class="search-input" id="search-input" placeholder="Buscar produtos...">
+                </div>
+
+                <!-- Área de Autenticação Dinâmica (JS) -->
+                <div id="user-auth-area"></div>
+
+                <!-- Botão de Acesso ao Painel Lateral -->
+                <button class="navbar-toggler border-0 p-2 rounded-circle hover-bg" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateralTechStore" aria-controls="menuLateralTechStore">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Lateral (Offcanvas Customizado) -->
+    <div class="offcanvas offcanvas-end offcanvas-custom" tabindex="-1" id="menuLateralTechStore" aria-labelledby="menuLateralTechStoreLabel" style="max-width: 280px;">
+        <!-- Injetado dinamicamente via app.js para manter consistência total -->
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container-fluid px-4 mt-4">
+        
+        <!-- Mobile Search Bar (Apenas visível em telas bem pequenas) -->
+        <div class="d-block d-sm-none mb-4">
+            <div class="search-container w-100 max-width-100">
+                <i class="bi bi-search search-icon"></i>
+                <input type="text" class="search-input" id="search-input-mobile" placeholder="Buscar produtos...">
+            </div>
+        </div>
+
+        <!-- Carrossel de Destaques -->
+        <section class="mb-5">
+            <h3 class="mb-3 text-secondary fw-semibold fs-5">✨ Itens em Destaque</h3>
+            <div id="carouselDestaques" class="carousel slide carousel-custom shadow" data-bs-ride="carousel">
+                <div class="carousel-indicators"></div>
+                <div class="carousel-inner" id="carousel-inner-container"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestaques" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark bg-opacity-25 rounded-circle p-3" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDestaques" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark bg-opacity-25 rounded-circle p-3" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Vitrine Completa de Produtos -->
+        <section class="mb-5">
+            <h3 class="mb-4 border-bottom pb-2 text-secondary fw-semibold fs-5">📦 Todos os Produtos</h3>
+            <div id="product-list" class="row g-4 justify-content-start">
+                <!-- Os produtos serão renderizados dinamicamente aqui -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé Premium -->
+    <!-- Rodapé Premium -->
+    <footer class="custom-footer shadow-sm">
+        <div class="container-fluid px-4">
+            <div class="row g-4">
+                <!-- Coluna 1: Sobre o Projeto -->
+                <div class="col-lg-5 col-md-6">
+                    <h5 class="fw-bold"><i class="bi bi-info-circle-fill custom-footer-icon"></i>Sobre a TechStore</h5>
+                    <p class="mb-0">A TechStore é um mini e-commerce dinâmico desenvolvido como projeto acadêmico prático. A plataforma consome catálogos estruturados em JSON para renderizar componentes de interface de forma 100% dinâmica através de Vanilla JS, CSS customizado e componentes do framework Bootstrap 5.</p>
+                </div>
+                <!-- Coluna 2: Detalhes Técnicos da Página -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold"><i class="bi bi-cpu-fill custom-footer-icon"></i>Tecnologias na Vitrine</h5>
+                    <p class="mb-0">Página inicial contendo vitrine de destaques com carrossel dinâmico, área de autenticação local e busca corporativa de produtos em tempo real com filtragem reativa.</p>
+                </div>
+                <!-- Coluna 3: Autoria -->
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="fw-bold"><i class="bi bi-mortarboard-fill custom-footer-icon"></i>Autoria Acadêmica</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-1"><strong>Aluno:</strong> Andrew Kaique Ferreira de Paula</li>
+                        <li class="mb-1"><strong>Matrícula:</strong> 927993</li>
+                        <li class="mb-1"><strong>Curso:</strong> Sistemas de Informação</li>
+                        <li><strong>Instituição:</strong> PUC Minas (EAD / Unidade Coração Eucarístico)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core App JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
