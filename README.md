@@ -1,6 +1,6 @@
-# ⚡ TechStore - E-commerce Dinâmico
+# ⚡ TechStore - E-commerce Dinâmico (Integração de Login e Personalização)
 
-Projeto prático desenvolvido para a disciplina de **Desenvolvimento Web** no curso de **Sistemas de Informação** na **PUC Minas**. A aplicação consiste em um mini e-commerce responsivo que consome dados estruturados em formato JSON para renderizar componentes de interface de forma 100% dinâmica via JavaScript e o framework Bootstrap 5.
+Projeto prático desenvolvido para a disciplina de **Desenvolvimento Web** no curso de **Sistemas de Informação** na **PUC Minas**. Esta etapa da aplicação foca na integração de um módulo de autenticação local e na implementação de funcionalidades de personalização por usuário, consumindo o ecossistema de Web Storage do navegador.
 
 ---
 
@@ -8,51 +8,63 @@ Projeto prático desenvolvido para a disciplina de **Desenvolvimento Web** no cu
 * **Nome:** Andrew Kaique Ferreira de Paula
 * **Matrícula:** 927993
 * **Curso:** Sistemas de Informação
-* **Instituição:** PUC Minas (EAD / Unidade Coração Eucarístico)
+* **Instituição:** PUC Minas Barreiro
 
 ---
 
 ## 🚀 Funcionalidades Implementadas
 
-1. **Vitrine Dinâmica (`index.html`):** Renderização de produtos e destaques via Vanilla JS a partir de um objeto JSON.
-2. **Página de Detalhes (`detalhes.html`):** Passagem de parâmetros via Query String para exibição aprofundada de um item individual e galeria de fotos.
-3. **Apresentação Dinâmica de Dados (`estatisticas.html`):** Implementação de um painel visual utilizando a biblioteca **Chart.js**. O script realiza a manipulação e o processamento dos dados estruturados em JSON, agrupando os produtos por categoria, e exibe as informações por meio de um gráfico de pizza responsivo e interativo.
-4. **Navegação Lateral (Offcanvas):** Implementação de um menu hambúrguer dinâmico que lista todos os produtos do JSON em um componente *collapse*, facilitando o trânsito entre as páginas.
+A aplicação consiste em um mini e-commerce responsivo e dinâmico via Vanilla JS, agora atualizado com as seguintes implementações exigidas na atividade:
+
+1. **Autenticação e Controle de Sessão (`sessionStorage`):** Módulo de login funcional validando os usuários estáticos. O estado da conexão é gerenciado pelo `sessionStorage`, e a interface de navegação (Navbar) responde dinamicamente renderizando o nome do usuário ativo (ex: "Olá, Andrew") ou o botão de "Entrar" para sessões anônimas. O logoff destroi a sessão adequadamente.
+2. **Personalização - Lista de Favoritos (`localStorage`):** Adição de regra de negócio que permite ao usuário conectado marcar e desmarcar produtos como favoritos. Os itens são armazenados no `localStorage` por meio de uma chave relacional e composta (`favoritos_<id_do_usuario>`), garantindo que os dados não se misturem entre contas diferentes na mesma máquina.
+3. **Página Exclusiva de Favoritos:** Criação da view `favoritos.html`, com bloqueio de rota para visitantes (anônimos são redirecionados para a tela de login), que recupera os IDs persistidos e lista apenas os cards escolhidos pelo usuário.
+4. **Renderização Dinâmica do Catálogo:** Vitrine de produtos, carrossel de destaques e painel analítico (via Chart.js) preenchidos através da leitura de arrays de objetos estritamente padronizados via JS, sem necessidade de JSON Server para esta etapa.
 
 ---
 
-## 📸 Documentação Visual (Prints das Telas)
+## 📸 Documentação Visual (Prints Obrigatórios da Atividade)
 
-Abaixo estão as capturas de tela demonstrando o funcionamento da aplicação e a manipulação dos dados dinâmicos, conforme exigido pela Etapa 2 da atividade.
+Abaixo estão as evidências do funcionamento das funcionalidades implementadas, conforme checklist do professor.
 
-### 1. Home-page (`index.html`)
-A página inicial apresenta a seção com os produtos em destaque utilizando o componente Carrossel e a listagem geral consumindo o JSON.
-![Home Page](assets/img/pagina/HomePage.jpg)
+### 1. Home mostrando usuário logado
+Tela inicial evidenciando que a sessão foi validada e a Navbar foi alterada via manipulação de DOM para refletir o nome do usuário corrente.
+![Home Page com Usuário Logado](assets/img/pagina/HomePageLogado.jpg)
 
-### 2. Página de Detalhes (`detalhes.html`)
-Acessada dinamicamente ao clicar em um produto. Apresenta o layout personalizado individualmente com as especificações da entidade principal e a galeria de fotos vinculadas.
-![Detalhes do Produto](assets/img/pagina/Detalhes.jpg)
 
-### 3. Apresentação Dinâmica com Chart.js (`estatisticas.html`)
-Gráfico de Pizza gerado em tempo real, comprovando a leitura e agrupamento das categorias presentes no JSON. 
+### 2. Página "Meus Favoritos"
+Tela isolada exibindo apenas os itens que foram devidamente persistidos e salvos na chave do usuário ativo (provando a persistência por usuário exigida).
+![Página de Meus Favoritos](assets/img/pagina/Favoritos.jpg)
 
-*(Abaixo, os dois prints obrigatórios exigidos pela Etapa 2, evidenciando a funcionalidade com dados manipulados/diferentes)*:
-![Painel de Estatísticas - Dados 1](assets/img/pagina/Estatisticas.jpg)
-![Painl de Estatísticas - Dados 2](<assets/img/pagina/Estatisticas 002.jpg>)
+### 3. Página "Meus Favoritos"
+Tela de login do usuário /admin.
+![Página de Meus Favoritos](assets/img/pagina/TelaLogin.jpg)
 
 ---
 
-## 🛠️ Tecnologias e Bibliotecas Utilizadas
-* **HTML5 e CSS3**
-* **Vanilla JavaScript (ES6)**
-* **Bootstrap 5** (Grid System, Cards, Carrossel, Offcanvas, Collapse)
-* **Bootstrap Icons** (Ícones SVG)
-* **Chart.js** (Renderização do Gráfico de Pizza)
+## 🛠️ Ferramentas e Tecnologias Empregadas
+* **HTML5 e CSS3** (Customização visual dedicada)
+* **Vanilla JavaScript (ES6)** (Lógica, Iteradores de Array e Manipulação de DOM)
+* **Web Storage API** (`sessionStorage` e `localStorage`)
+* **Bootstrap 5** (Componentes de interface, Offcanvas e Modais)
+* **Bootstrap Icons** (Simbologia vetorial)
 
 ---
 
-## 📌 Versionamento e Tags (Git)
-Este repositório seguiu o processo gradativo de desenvolvimento via commits e tags:
-* `v1.0` - *chore: ambiente de desenvolvimento inicial do projeto*
-* `v2.0` - *feat: add funcionalidade graficos dinamicos com Chart.js*
-* `v3.0` - *docs: Alterações do README.md*
+## ⚙️ Como Executar a Aplicação
+1. Realize o clone deste repositório em sua máquina local.
+2. Abra a pasta do projeto em seu editor de código (como o Visual Studio Code).
+3. Utilize uma extensão como o *Live Server* ou abra o arquivo `index.html` diretamente em seu navegador preferido.
+4. Para testar o sistema de persistência, acesse `login.html` e valide a entrada com as credenciais padrão:
+   * **Login:** `admin` | **Senha:** `123`
+   * **Login:** `user` | **Senha:** `123`
+
+---
+
+## 📌 Checklist de Entregáveis Concluído
+- [x] Login funciona e redireciona corretamente para a home.
+- [x] Usuário logado é obtido via `sessionStorage` e usado na interface (UI).
+- [x] Funcionalidade adicional de favoritos funciona somente para usuário logado.
+- [x] Persistência por usuário está funcionando em `localStorage` com chave composta (ao atualizar a página, continua).
+- [x] Há uma página/área que permite visualizar/gerenciar os favoritos.
+- [x] Códigos organizados (funções bem separadas e legíveis).
